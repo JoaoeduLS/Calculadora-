@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icone.jpg"
+</head>
+    <style>
+        body{
+            background-image:url(172203.jpg) ;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+
+        }
+    </style>
+<body>
+    <div class="title">
+        <h1>Calculadora</h1>
+    </div>
+    <div class="box">
+        <p id="resultado"></p>
+            <table>
+                <div class="inputBox">
+                    <tr>
+                        <td><button class="botao" onclick="apagafull('')">AC</button></td>
+                            <td><button class="botao" onclick="apaganum('<=')"><=</button></td>
+                            <td><button class="botao" onclick="porcentagem('%')">%</button></td>
+                        <td><button class="botao" onclick="insert('/')">÷</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><button class="botao" onclick="insert('7')">7</button></td>
+                            <td><button class="botao" onclick="insert('8')">8</button></td>
+                            <td><button class="botao" onclick="insert('9')">9</button></td>
+                        <td><button class="botao" onclick="insert('*')">x</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><button class="botao" onclick="insert('4')">4</button></td>
+                            <td><button class="botao" onclick="insert('5')">5</button></td>
+                            <td><button class="botao" onclick="insert('6')">6</button></td>
+                        <td><button class="botao" onclick="insert('-')">-</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><button class="botao" onclick="insert('1')">1</button></td>
+                            <td><button class="botao" onclick="insert('2')">2</button></td>
+                            <td><button class="botao" onclick="insert('3')">3</button></td>
+                        <td><button class="botao" onclick="insert('+')">+</button></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"><button class="botao" onclick="insert('0')" style="width:106px;">0</button></td>
+                            <td><button class="botao" onclick="insert(',')">,</button></td>
+                        <td><button class="botao" onclick="resultado('=')">=</button></td>
+                    </tr>
+                </div>
+            </table>
+    </div>
+        <div class="music">
+            <audio controls src="files/SaveTube.App - é madrugada e você está ouvindo lofi para esquecer os problemas, relaxar e dormir (128 kbps).mp3"></audio>
+        </div>
+        <script>
+            function insert(num)
+            {
+                var numero = document.getElementById('resultado').innerHTML ;
+                document.getElementById('resultado').innerHTML = numero + num;
+            }
+            function apagafull()
+            {
+                document.getElementById('resultado').innerHTML = "";
+            }
+            function apaganum()
+            {
+                var resultado =document.getElementById('resultado').innerHTML;
+                document.getElementById('resultado').innerHTML=resultado.substring(1,resultado-1)
+            }
+            function resultado()
+            {
+                var resultado=document.getElementById('resultado').innerHTML;
+                if(resultado)
+                    {
+                        document.getElementById('resultado').innerHTML = eval(resultado)
+                    }
+                else
+                    {
+                        document.getElementById('resultado').innerHTML = "Nada..."
+                    }
+            }
+            function porcentagem()
+            {
+            var numero = document.getElementById('resultado').innerHTML ;
+            document.getElementById('resultado').innerHTML = numero/100;
+            }
+        </script>  
+        <script>
+            window.audio=[
+                {
+                    File:"SaveTube.App - é madrugada e você está ouvindo lofi para esquecer os problemas, relaxar e dormir (128 kbps).mp3"
+                }
+            ]
+        </script> 
+</body>
+</html>
